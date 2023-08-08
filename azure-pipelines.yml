@@ -13,21 +13,18 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSource: 'spec'
-    versionSpec: '18.x'
+    versionSpec: '14.x'
   displayName: 'Install Node.js'
 
 - script: |
     npm i
   displayName: 'npm i'
 
-- task: CmdLine@2
-  inputs:
-    script: 'npx react-native build-android --mode=release'
 - task: Gradle@3
   inputs:
     gradleWrapperFile: 'android/gradlew'
     workingDirectory: ''
-    tasks: 'build'
+    tasks: 'bundleRelease --warning-mode all'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
