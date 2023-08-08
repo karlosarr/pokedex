@@ -23,7 +23,7 @@ steps:
 - task: Gradle@3
   inputs:
     gradleWrapperFile: 'gradlew'
-    workingDirectory: '$(system.defaultworkingdirectory)/android'
+    workingDirectory: 'android'
     tasks: 'build'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
