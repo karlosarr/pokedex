@@ -22,8 +22,8 @@ steps:
 
 - task: Gradle@3
   inputs:
-    gradleWrapperFile: 'android/gradlew'
-    workingDirectory: ''
+    gradleWrapperFile: './gradlew'
+    workingDirectory: '$(Build.SourcesDirectory)/android'
     tasks: 'bundleRelease --warning-mode all'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
