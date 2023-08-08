@@ -19,6 +19,11 @@ steps:
 - script: |
     npm i
   displayName: 'npm i'
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
 
 - task: Gradle@3
   inputs:
@@ -27,5 +32,6 @@ steps:
     tasks: 'bundleRelease --warning-mode all'
     publishJUnitResults: false
     javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
     sonarQubeRunAnalysis: false
     spotBugsAnalysis: false
