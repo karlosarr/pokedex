@@ -20,6 +20,9 @@ steps:
     npm i
   displayName: 'npm i'
 
+- task: CmdLine@2
+  inputs:
+    script: 'npx react-native build-android --mode=release'
 - task: Gradle@3
   inputs:
     gradleWrapperFile: 'android/gradlew'
