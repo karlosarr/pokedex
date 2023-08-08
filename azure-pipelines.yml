@@ -22,7 +22,7 @@ steps:
 
 - task: Gradle@3
   inputs:
-    gradleWrapperFile: './gradlew'
+    gradleWrapperFile: './android/gradlew'
     workingDirectory: '$(Build.SourcesDirectory)/android'
     tasks: 'bundleRelease --warning-mode all'
     publishJUnitResults: false
