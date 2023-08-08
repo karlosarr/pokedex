@@ -35,3 +35,14 @@ steps:
     jdkVersionOption: '1.11'
     sonarQubeRunAnalysis: false
     spotBugsAnalysis: false
+- task: CopyFiles@2
+  inputs:
+    Contents: |
+      **/*.apk
+      **/*.aab
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/android'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
